@@ -1,0 +1,29 @@
+<div class="detail-container">
+  <div class="col">
+    <div class="back-btn">
+      <button mat-fab color="primary" aria-label="Back button" [routerLink]="['..']">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+
+    <mat-chip-list aria-label="Categories" class="chips" *ngIf="joke?.categories?.length">
+      <mat-chip color="accent" *ngFor="let category of joke?.categories">{{ category }}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image" [style.background-image]="'url(' + joke?.icon_url + ')'"></div>
+      <mat-card-title>Chuck Norris</mat-card-title>
+      <mat-card-subtitle>Fact</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      {{ joke?.value }}
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!--
+<pre>
+  {{ joke | json }}
+</pre> -->

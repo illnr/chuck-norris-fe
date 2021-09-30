@@ -2,7 +2,9 @@
   <h2>Select a category</h2>
   <div class="categories">
     <div class="button" *ngFor="let category of categories">
-      <button mat-raised-button color="accent">{{ category }}</button>
+      <button mat-raised-button color="accent" [routerLink]="['joke']" [queryParams]="{category}">
+        {{ category }}
+      </button>
     </div>
   </div>
 </div>

@@ -14,10 +14,10 @@ export class ChuckComponent implements OnInit {
   /**
    * List of available categories.
    */
-  categories: Observable<string[]>;
+  categorie$: Observable<string[]>;
 
   constructor(private chuckApi: ChuckApiService) {
-    this.categories = this.chuckApi
+    this.categorie$ = this.chuckApi
       .getCategories()
       .pipe(catchError(() => of([])));
   }

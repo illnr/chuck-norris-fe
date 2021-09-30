@@ -1,0 +1,26 @@
+.detail-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.col {
+  margin-bottom: 1rem;
+}
+
+.card {
+  max-width: 500px;
+  margin: auto;
+}
+
+.header-image {
+  background-size: cover;
+}
+
+.mat-card-avatar {
+  border-radius: 0;
+}
+
+.back-btn {
+  margin-bottom: 1rem;
+}
