@@ -21,9 +21,8 @@ export class JokeComponent implements OnInit {
   ngOnInit(): void {
     this.joke = this.route.queryParams.pipe(
       switchMap((params) => {
-        console.log(params);
-        const category = params.category;
-        const query = params.query;
+        const category = params?.category;
+        const query = params?.query;
         console.log({ category, query });
 
         return this.chuckApi.getJoke({ category, query });

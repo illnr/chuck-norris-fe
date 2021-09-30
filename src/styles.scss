@@ -15,10 +15,18 @@ body {
   display: flex;
 }
 
-.h-rect {
+%rect-spacing {
   padding: 1rem;
   border: 1px solid transparent;
   border-radius: 4px;
+}
+
+.h-rect-spacing {
+  @extend %rect-spacing;
+}
+
+.h-rect {
+  @extend %rect-spacing;
   transition: border-color 400ms;
 
   &:hover {

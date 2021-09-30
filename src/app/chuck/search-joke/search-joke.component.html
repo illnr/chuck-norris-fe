@@ -1,0 +1,17 @@
+<div class="h-rect">
+  <h2>Search</h2>
+  <form class="search-form h-rect-spacing" #searchForm="ngForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Search a fact</mat-label>
+      <input matInput placeholder="Ex. Terminator" name="search" [(ngModel)]="search">
+    </mat-form-field>
+    <div class="buttons">
+      <div class="h-rect-spacing search-button">
+        <button mat-raised-button color="warn" type="submit" [routerLink]="['joke']" [queryParams]="{ query: search }">
+          Search Joke
+        </button>
+      </div>
+      <app-random-joke></app-random-joke>
+    </div>
+  </form>
+</div>

@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Joke } from './joke';
+import { Jokes } from './jokes';
 
 @Injectable({
   providedIn: 'root',
@@ -44,7 +46,7 @@ export class ChuckApiService {
    * Retrieve a random chuck joke in JSON format.
    * @returns
    */
-  getRandomJoke() {
+  getRandomJoke(): Observable<Joke> {
     return this.http.get<Joke>(this.randomRoute);
   }
 
@@ -53,15 +55,17 @@ export class ChuckApiService {
    * @param query the free text
    * @returns
    */
-  queryJoke(query: string) {
-    return this.http.get<Joke>(this.queryRoute(query));
+  queryJoke(query: string): Observable<Joke> {
+    return this.http
+      .get<Jokes>(this.queryRoute(query))
+      .pipe(map((jokes) => jokes.result[0]));
   }
 
   /**
    * Retrieve a random chuck norris joke from a given category.
    * @param category
    */
-  getCategoryJoke(category: string) {
+  getCategoryJoke(category: string): Observable<Joke> {
     return this.http.get<Joke>(this.categoryRoute(category));
   }
 }
