@@ -7,9 +7,10 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SharedModule } from '../shared/shared.module';
 import { JokeComponent } from './joke/joke.component';
 import { DetailComponent } from './joke/detail/detail.component';
+import { RandomJokeComponent } from './random-joke/random-joke.component';
 
 @NgModule({
-  declarations: [ChuckComponent, CategoriesComponent, JokeComponent, DetailComponent],
+  declarations: [ChuckComponent, CategoriesComponent, JokeComponent, DetailComponent, RandomJokeComponent],
   imports: [CommonModule, ChuckRoutingModule, SharedModule],
 })
 export class ChuckModule {}
