@@ -1,4 +1,4 @@
-<div class="detail-container">
+<div class="detail-container" *ngIf="joke?.value; else error">
   <div class="col">
     <div class="back-btn">
       <button mat-fab color="primary" aria-label="Back button" [routerLink]="['..']">
@@ -23,7 +23,20 @@
   </mat-card>
 </div>
 
-<!--
-<pre>
-  {{ joke | json }}
-</pre> -->
+<ng-template #error>
+  <div class="detail-container">
+    <div class="col">
+      <button mat-fab color="primary" aria-label="Back button" [routerLink]="['..']">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+    <mat-card class="card">
+      <mat-card-title>Error</mat-card-title>
+      <mat-card-content>
+        <p>
+          No Fact was found. Please try again.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-template>
